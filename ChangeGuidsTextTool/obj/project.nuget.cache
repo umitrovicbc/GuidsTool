@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "uyZKJksEZXai8d4o0nWonfbdOcnqxp1oELddil1DPjcUYmmqbFmEOTTqY9nHyblr4L+ZeP73UV3pdTnaucD6xg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\umitrovic\\source\\repos\\GuidsTool\\ChangeGuidsTextTool\\ChangeGuidsTextTool.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\umitrovic\\.nuget\\packages\\markdig\\0.30.4\\markdig.0.30.4.nupkg.sha512"
+  ],
+  "logs": []
+}

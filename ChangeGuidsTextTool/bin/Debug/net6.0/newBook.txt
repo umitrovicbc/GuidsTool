@@ -1,0 +1,152 @@
+using System.Diagnostics.CodeAnalysis;
+using System.Threading.Tasks;
+using ActionNetwork.Common.Enum.Core;
+using ActionNetwork.DependencyInjection;
+using ActionNetwork.ResourceManager.Services.Interfaces;
+using ActionNetwork.TaskManager.Annotations;
+using SportsInsights.Data.Enum;
+using SportsInsights.Line.Shared.Services;
+using SportsInsights.Line.Shared.Tasks.Wynnbet.Models;
+using SportsInsights.Processor.Shared.Services.Interfaces;
+using SportsInsights.Shared.Mapping.Services.Interfaces;
+
+namespace SportsInsights.Line.Shared.Tasks.Wynnbet
+{
+	public interface IWynnBetVATasks : ISingleton
+	{
+		[Task("a40004b19e41475abc0a42cbb4ea2edc", nameof(SportsbookEnum.TESTtest), "League Maps", "Refresh")]
+		Task RefreshLeagueMappings();
+
+		#region Extracts
+		[Task("176dc75402244ec5a935914930587349", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.NFL), "Extract")]
+		Task ExtractWynnBetNFLMarkets();
+
+		[Task("eb6868ae9b794183a0e83ae1fc5cfda8", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.NBA), "Extract")]
+		Task ExtractWynnBetNBAMarkets();
+
+		[Task("523bb2db11a7495cad2acb3f315c4b15", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.NHL), "Extract")]
+		Task ExtractWynnBetNHLMarkets();
+
+		[Task("d26291a4ef8645d5b39ad44ed125c877", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.MLB), "Extract")]
+		Task ExtractWynnBetMLBMarkets();
+
+		[Task("70c3c9bbbcfb4094a1b7e52f4253c632", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.NCAAF), "Extract")]
+		Task ExtractWynnBetNCAAFMarkets();
+
+		[Task("5df8b34ba8c64046842af06fdd15f81c", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.NCAAB), "Extract")]
+		Task ExtractWynnBetNCAABMarkets();
+
+		[Task("0ef8c8f690c749ad86b35264b940dfe5", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.EPL), "Extract")]
+		Task ExtractWynnBetEPLMarkets();
+
+		[Task("957d84ed45844a71b2dbfdb71489f7dc", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.LaLiga), "Extract")]
+		Task ExtractWynnBetLaLigaMarkets();
+
+		[Task("670f37bbdad345a58e1c08f8b272f915", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.SerieA), "Extract")]
+		Task ExtractWynnBetSerieAMarkets();
+
+		[Task("0dc9c033da4844f98b56e954b75132ba", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.Ligue1), "Extract")]
+		Task ExtractWynnBetLigue1Markets();
+
+		[Task("4fad42737d3a4c7894ec74e6ca285993", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.Bundesliga), "Extract")]
+		Task ExtractWynnBetBundesligaMarkets();
+
+		[Task("d740f3df415d4523b288b94ed2b701a5", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.MLS), "Extract")]
+		Task ExtractWynnBetMLSMarkets();
+
+		[Task("3bdbc833220040899777fc54681a6ef7", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.EuropaSoccer), "Extract")]
+		Task ExtractWynnBetEuropaSoccerMarkets();
+
+		[Task("8ba054a7aada4d39bd7d5a54817765b9", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.ChampionsSoccer), "Extract")]
+		Task ExtractWynnBetChampionsSoccerMarkets();
+
+		[Task("363b304c02c44e23b1ef3fd2a5e19bac", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.ATP), "Extract")]
+		Task ExtractWynnBetATPMarkets();
+
+		[Task("190ab7c2132c4615915edbe74b606df8", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.WTA), "Extract")]
+		Task ExtractWynnBetWTAMarkets();
+
+		[Task("2700c38658904d338a75676832d0e73f", nameof(SportsbookEnum.TESTtest), "Odds Boost", "Extract")]
+		void ExtractWynnBetOddsBoosts();
+
+		#endregion
+
+		#region Transforms
+		[Task("e7a6a96e97414ed0910f93951e383c53", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.NFL), "Transform")]
+		void TransformWynnBetNFLMarkets();
+
+		[Task("bd0f976c1feb4b319984abc9d05d2802", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.NBA), "Transform")]
+		void TransformWynnBetNBAMarkets();
+
+		[Task("f9522abc8dc8460e8790005f3b80fdc2", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.NHL), "Transform")]
+		void TransformWynnBetNHLMarkets();
+
+		[Task("3a06a173d7ab44329faf1805397fa222", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.MLB), "Transform")]
+		void TransformWynnBetMLBMarkets();
+
+		[Task("ac2a82078c754bfa902a613c31bacea9", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.NCAAF), "Transform")]
+		void TransformWynnBetNCAAFMarkets();
+
+		[Task("5b767999347f4a77bf9dcb4df97c2ae7", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.NCAAB), "Transform")]
+		void TransformWynnBetNCAABMarkets();
+
+		[Task("d3ee5bf4a87e4b1a921486f76469afc4", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.EPL), "Transform")]
+		void TransformWynnBetEPLMarkets();
+
+		[Task("a15b51a291b14895bf27a2ffe3ce2b7e", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.LaLiga), "Transform")]
+		void TransformWynnBetLaLigaMarkets();
+
+		[Task("99280e93cc6b4f97b11f8a2cc9b6d06b", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.SerieA), "Transform")]
+		void TransformWynnBetSerieAMarkets();
+
+		[Task("5a9244bff75248ff901450e98d9f2271", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.Ligue1), "Transform")]
+		void TransformWynnBetLigue1Markets();
+
+		[Task("7a5295002f214708a14a02d8399a6ee7", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.Bundesliga), "Transform")]
+		void TransformWynnBetBundesligaMarkets();
+
+		[Task("cbeb507465e14e85b5b53d64c95c1464", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.MLS), "Transform")]
+		void TransformWynnBetMLSMarkets();
+
+		[Task("c95531498b0c4c939502457a6842503f", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.EuropaSoccer), "Transform")]
+		void TransformWynnBetEuropaSoccerMarkets();
+
+		[Task("a6e2a0dbbe824362af37c31a640b0573", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.ChampionsSoccer), "Transform")]
+		void TransformWynnBetChampionsSoccerMarkets();
+
+		[Task("429ad275e0f745e190da2b4c214087da", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.ATP), "Transform")]
+		void TransformWynnBetATPMarkets();
+
+		[Task("cec75264a86d4c6e8cff1b93cc263233", nameof(SportsbookEnum.TESTtest), nameof(LeagueEnum.WTA), "Transform")]
+		void TransformWynnBetWTAMarkets();
+
+		[Task("c526931a713d42eda24682b4a26e7aef", nameof(SportsbookEnum.TESTtest), "Odds Boost", "Transform")]
+		void TransformWynnBetOddsBoosts();
+
+		#endregion
+	}
+
+	[ExcludeFromCodeCoverage]
+	public class WynnBetVATasks : WynnBetTasksBase, IWynnBetVATasks
+	{
+		private static readonly WynnBetConfig config = new()
+		{
+			Sportsbook = SportsbookEnum.TESTtest,
+			MapType = MapTypeEnum.WynnVA,
+			Domain = "va-api.wynnbet.com",
+			SiteDomain = "va.wynnbet.com",
+			AppName = "WYNN_VA",
+			PageTemplateId = 287,
+		};
+
+		public WynnBetVATasks(
+			IExtractService extractService,
+			ILeagueTypeMapService leagueTypeMapService,
+			ILeagueMapService leagueMapService,
+			IResourceManagerService resourceManagerService,
+			IMarketTransformService marketTransformService,
+			IStageOddsBoostService stageOddsBoostService,
+			IWynnBetMarketParser wynnBetMarketParser)
+		: base(extractService, leagueTypeMapService, leagueMapService, resourceManagerService, marketTransformService, stageOddsBoostService, wynnBetMarketParser, config) { }
+	};
+}
